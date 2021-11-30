@@ -1,45 +1,46 @@
 <!DOCTYPE html>
 <html>
+
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title></title>
+        <title>typewriter effect</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="style.css">
     </head>
 
 
-    <body>
+    <body style="background-color:black">
+
+        <a href="#" id="lien" style="color: white; font-weight: bold;"></a>
 
         <script>
-            
-            function gen_table(nbCols, nbRows){
-                
-                let myBody =  document.getElementsByTagName("body")[0];
-                let myTable = document.createElement("table");
-                myTable.setAttribute("id", "myTable");
-                myBody.appendChild(myTable);
-                let step = 255 / (nbCols * nbRows);
-                let r = 0 ;
-                let b = 255 ;
-                for(i=0 ; i < nbCols ; i++) {
-                    let myTr = document.createElement("tr");
-                    myTable.appendChild(myTr);
-    
-                    for(j = 0; j < nbRows; j++){
-                        let myTd = document.createElement("td");
-                        myTd.setAttribute("class", "cell");
-                        myTd.innerHTML = i + " , " + j;
-                        myTr.appendChild(myTd);
-                        myTd.style.backgroundColor = "rgb("+(r+=step)+", 0 , "+(b-=step)+")";
-                        
-                    }
-                }
 
+            let letexte = "Lorem ipsum dolor sit amet. Vel doloribus dolore adipisci esse sit dolorem officiis in nihil velit sit.";
+            let letimer = 1000;
+            let cmpt = 0;
+            
+            function typewriter(){
+                lelien = document.getElementById('lien');
+
+                if(cmpt < letexte.length){
+                    // affiche la chaine
+                    courant = lelien.innerHTML.substring(0, lelien.innerHTML.length - 1);
+                    courant += letexte.charAt(cmpt)+"_";
+                    lelien.innerHTML = courant;
+                } else {
+                    // je remet à zéro
+                    lelien.innerHTML = "";
+                    cmpt = -1;
+                }
+                cmpt++;
+                console.log(cmpt);
+                setTimeout("typewriter()",letimer);
             }
 
-            gen_table(10, 10);
+            window.onload = function() { typewriter();}
+
+
 
         </script>
  
