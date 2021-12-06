@@ -14,36 +14,10 @@
 
         <a href="#" id="lien" style="color: white; font-weight: bold;"></a>
 
-        <script>
-
-            let letexte = "Lorem ipsum dolor sit amet. Vel doloribus dolore adipisci esse sit dolorem officiis in nihil velit sit.";
-            let letimer = 1000;
-            let cmpt = 0;
-            
-            function typewriter(){
-                lelien = document.getElementById('lien');
-
-                if(cmpt < letexte.length){
-                    // affiche la chaine
-                    courant = lelien.innerHTML.substring(0, lelien.innerHTML.length - 1);
-                    courant += letexte.charAt(cmpt)+"_";
-                    lelien.innerHTML = courant;
-                } else {
-                    // je remet à zéro
-                    lelien.innerHTML = "";
-                    cmpt = -1;
-                }
-                cmpt++;
-                console.log(cmpt);
-                setTimeout("typewriter()",letimer);
-            }
-
-            window.onload = function() { typewriter();}
-
-
-
-        </script>
  
+        <script src="table.js"></script>
     </body>
+
+
 
 </html>
